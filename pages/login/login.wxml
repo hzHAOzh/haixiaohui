@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="header">
+    <image src="/asset/imgs/logo.png" mode=""/>
+  </view>
+  <view class="login">
+    <view class="form-item">
+      <van-icon name="user-o" size="32rpx"/>
+      <input type="text" bindinput="fakeCallback" model:value="{{stuId}}" placeholder="请输入学号"/>
+    </view>
+    <view class="form-item">
+      <van-icon name="wap-home-o" size="32rpx"/>
+      <input type="password" bindinput="fakeCallback" model:value="{{password}}" placeholder="请输入密码"/>
+    </view>
+    <view bindtap="switchCheckStatus" class="checkbox-item">
+      <checkbox class="theme" checked="{{saveCount}}"/>
+      <view class="margin-left-sm">记住账号密码(仅本地存储)</view>
+    </view>
+    <button bindtap="login" style="margin-top: 64rpx;">登录</button>
+  </view>
+</view>
+

@@ -1,0 +1,16 @@
+/* pages/calendar/calendar.wxss */
+page{
+  background-color: #f1f1f1;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container image{
+  margin-top: 30rpx;
+  width: 700rpx;
+}
+
+

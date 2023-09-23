@@ -1,0 +1,39 @@
+<!--pages/attendance/attendance.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">考勤记录</view>
+</cu-custom>
+<view class="container">
+  <view class="header">
+    <view class="picker">
+      <picker mode="selector" range="{{attendanceList}}" range-key="termName" value="{{termIndex}}" 
+      bindchange="changeTerm">
+        {{termIndex?attendanceList[termIndex].termName:'选择学期'}}
+        <text class="cuIcon-unfold"></text>
+    </picker>
+    </view>
+    <view class="refresh" bindtap="update">
+      <text class="cuIcon-refresh"></text>
+    </view>
+  </view>
+  <view wx:if="{{termIndex}}" class="attendance-list">
+    <view class="term-name">{{attendanceList[termIndex].termName}}</view>
+    <view class="list">
+      <view class="attendance-item" wx:for="{{attendanceList[termIndex].attendanceList}}" wx:key="index" data-index="{{index}}" bindtap="navAttendanceDetail">
+        <view class="item-left">
+          <view class="attendance-reason">缺勤原因：{{item.reason}}</view>
+          <view class="attendance-date">缺勤时间：{{item.date}}</view>
+        </view>
+        <view class="item-right">
+          详情
+          <van-icon name="guide-o" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="attendance-empty" wx:if="{{!termIndex||!attendanceList[termIndex].attendanceList}}">
+    <image src="../../asset/imgs/empty.png" mode=""/>
+    <view class="empty-text" wx:if="{{attendanceList[termIndex].attendanceList}}">暂无考勤记录</view>
+    <view class="empty-text" wx:if="{{!termIndex}}">请在上方选择学期</view>
+  </view>
+</view>

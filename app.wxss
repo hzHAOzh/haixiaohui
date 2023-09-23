@@ -1,0 +1,10 @@
+/**app.wxss**/
+@import "/style/main.wxss";
+page {
+  --theme: #5DEFE5;
+  --backgroundColor: #fff;
+  background-color: var(--backgroundColor);
+}
+view{
+  box-sizing: border-box;
+}

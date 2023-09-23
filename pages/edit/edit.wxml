@@ -1,0 +1,32 @@
+<!--pages/edit/edit.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">完善个人资料</view>
+</cu-custom>
+<view class="container">
+  <view class="header">
+    <view class="avatar">
+      <button open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image src="{{avatarUrl}}"></image>
+      </button>
+    </view>
+    <view class="userId">ID:{{ID}}</view>
+  </view>
+  <view class="edit-list" >
+    <view class="list-item">
+      <view class="item-title">昵称</view>
+      <input type="text" value="{{userName}}" placeholder="请点击输入" placeholder-style="color:#444444;   font-size:28rpx;" bindblur="handleInput"/>
+    </view>
+    <view class="list-item">
+      <view class="item-title">性别</view>
+      <picker range="{{sexList}}" bindchange="pickerChange" data-index="0">{{sex}}</picker>
+    </view>
+    <view class="list-item">
+      <view class="item-title">年级</view>
+      <picker range="{{gradeList}}" bindchange="pickerChange" data-index="1">{{grade}}</picker>
+    </view>
+  </view>
+  <view class="edit-confirm">
+    <view class="confirm-btn" bindtap="comfirmChange">确认修改</view>
+  </view>
+</view>

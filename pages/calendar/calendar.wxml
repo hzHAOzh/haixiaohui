@@ -1,0 +1,14 @@
+<!--pages/calendar/calendar.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">海大校历</view>
+</cu-custom>
+<view class="container">
+  <view class="img" bindtap="imgClick" wx:for="{{imgUrl}}" data-index="{{index}}" wx:key="index">
+    <image src="{{item}}" mode="aspectFit"/>
+  </view>
+  <van-popup show="{{ isshow }}" bind:close="onClose" closeable>
+    <image src="{{imgUrl[imgIndex]}}" style="width: 720rpx;"/>
+  </van-popup>
+</view>
+

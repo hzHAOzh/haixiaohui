@@ -1,0 +1,31 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header-left">
+      <view class="avatar">
+        <image src="{{avatarUrl}}"></image>
+      </view>
+      <view class="left-info">
+        <view class="user-name">{{userName==''?'未登录用户':userName}}</view>
+        <view class="user-id">ID: {{ID}}</view>
+      </view>
+    </view>
+    <view class="header-right" bindtap="toEdit">
+      编辑资料
+      <van-icon name="arrow"/>
+    </view>
+  </view>
+  <view class="mine-list">
+    <view class="list-item" wx:for="{{listItem}}" wx:key="id" data-index="{{index}}" bindtap="mineNav">
+      <view class="item-title">{{item}}</view>
+      <van-icon name="arrow"/>
+    </view>
+  </view>
+  <view class="remove-btn" bindtap="removeLogin">退出登录</view>
+  <van-overlay  show="{{ show }}" bind:click="onClickHide" custom-style="background:#000">
+    <view class="popImg">
+      <image src="/asset/imgs/code.jpg" mode="aspectFill"/>
+    </view>
+  </van-overlay>
+</view>
+
