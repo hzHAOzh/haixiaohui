@@ -57,6 +57,8 @@ Page({
         title: '登录成功',
         icon:'success'
       })
+      var page=getCurrentPages()[0]
+      page.onLoad()//刷新我的页面
       setTimeout(() => {
         wx.switchTab({
           url: '/pages/index/index',

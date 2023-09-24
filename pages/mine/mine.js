@@ -11,6 +11,7 @@ Page({
     ID:'',
     listItem:['问题反馈','用户协议','清除缓存','检查新版本'],
     show: false,
+    isLogin:true
   },
 
   /**
@@ -19,6 +20,7 @@ Page({
   onLoad(options) {
    this.getUserInfo()
    this.getId()
+   this.getIsLogin()
   },
   getId(){
     const that=this
@@ -37,6 +39,7 @@ Page({
     })
   },
   removeLogin(){
+    const that=this
     wx.showModal({
       title: '提示',
       content: '您确定要退出吗？',
@@ -48,6 +51,11 @@ Page({
           })
         }
       }
+    })
+  },
+  toLogin(){
+    wx.navigateTo({
+      url: '/pages/login/login',
     })
   },
   getUserInfo(){
@@ -83,5 +91,16 @@ Page({
   },
   onClickHide() {
     this.setData({ show: false });
+  },
+  getIsLogin(){
+    if(wx.getStorageSync('token')){
+      this.setData({
+        isLogin:true
+      })
+    }else{
+      this.setData({
+        isLogin:false
+      })
+    }
   },
 })

@@ -3,14 +3,14 @@
   <view class="header">
     <view class="header-left">
       <view class="avatar">
-        <image src="{{avatarUrl}}"></image>
+        <image src="{{isLogin?avatarUrl:'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'}}"></image>
       </view>
       <view class="left-info">
-        <view class="user-name">{{userName==''?'未登录用户':userName}}</view>
-        <view class="user-id">ID: {{ID}}</view>
+        <view class="user-name">{{isLogin&&userName?userName:'未登录用户'}}</view>
+        <view class="user-id">ID: {{isLogin?ID:''}}</view>
       </view>
     </view>
-    <view class="header-right" bindtap="toEdit">
+    <view class="header-right" bindtap="toEdit" wx:if="{{isLogin}}">
       编辑资料
       <van-icon name="arrow"/>
     </view>
@@ -21,7 +21,8 @@
       <van-icon name="arrow"/>
     </view>
   </view>
-  <view class="remove-btn" bindtap="removeLogin">退出登录</view>
+  <view class="remove-btn" bindtap="removeLogin" wx:if="{{isLogin}}">退出登录</view>
+  <view class="tologin-btn" bindtap="toLogin" wx:if="{{!isLogin}}">前往登录</view>
   <van-overlay  show="{{ show }}" bind:click="onClickHide" custom-style="background:#000">
     <view class="popImg">
       <image src="/asset/imgs/code.jpg" mode="aspectFill"/>
