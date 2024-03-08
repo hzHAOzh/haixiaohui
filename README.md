@@ -2,7 +2,6 @@
 
 海小慧 - 校园课表小程序课程开源项目，主要有查成绩、课表、考勤等一系列功能。</br>
 
-本项目参考b站up主蛋白熙相关课程视频</br>
 
 后端项目地址：https://github.com/hzHAOzh/haixiaohui-node</br>
 
